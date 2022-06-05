@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  /* height: 100vh; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* background: rgb(198, 116, 0);
+  background: linear-gradient(
+    194deg,
+    rgba(198, 116, 0, 0.7035189075630253) 8%,
+    rgba(73, 73, 73, 0.9346113445378151) 72%
+  ); */
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.photo img {
+  min-width: 300px;
+  max-width: 600px;
+}
