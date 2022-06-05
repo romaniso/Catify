@@ -3,10 +3,16 @@ let cats;
 
 async function start() {
   // implement catch /try
-  const response = await fetch(API);
-  const data = await response.json();
-  cats = data;
-  createBreedList(data);
+  try {
+    const response = await fetch(API);
+    const data = await response.json();
+    cats = data;
+    createBreedList(data);
+  } catch (e) {
+    console.log(
+      "Something went wrong :( Maybe, you've lost your Internet connection..."
+    );
+  }
 }
 
 function createBreedList(breeds) {

@@ -146,7 +146,8 @@ option {
 @media only screen and (max-width: 768px) {
   .content {
     flex-direction: column;
-    margin: 2rem 2rem
+    margin: 2rem 2rem;
+    justify-content: flex-start;
   }
 
   .header {
