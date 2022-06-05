@@ -36,8 +36,24 @@ async function loadByBreed(breedName) {
 }
 
 function createImage(obj) {
+  const { url: image } = obj;
+  const info = obj.breeds[0];
+  const { origin, description, name, temperament, life_span } = info;
+
+  console.log(info);
+
   document.getElementById("photo").innerHTML = `
-  <img src=${obj.url} alt="">
+  <img src=${image} alt="a lovely kitty">
+  `;
+  document.getElementById("description").innerHTML = `
+  <h2>I am ${name} Cat</h2>
+  <h3>I come from ${origin}, find out something about me...</h3>
+  <p>${description}</p>
+  <h3>I am ${temperament.toLowerCase()} kitty!</h3>
+  <h3>I can live for ${life_span} years!</h3>
+  
+
+  
   `;
 }
 

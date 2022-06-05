@@ -23,11 +23,20 @@ body {
   margin-bottom: 2rem;
 }
 
+.content {
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+}
+
 .photo {
   flex: 1;
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+}
+
+#description {
+  flex: 1;
 }
 
 .photo img {
