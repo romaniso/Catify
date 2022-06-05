@@ -2,6 +2,7 @@ const API = "https://api.thecatapi.com/v1/breeds";
 let cats;
 
 async function start() {
+  // implement catch /try
   const response = await fetch(API);
   const data = await response.json();
   cats = data;
@@ -10,7 +11,7 @@ async function start() {
 
 function createBreedList(breeds) {
   document.getElementById("breed").innerHTML = `
-  <select onchange="loadByBreed(this.value)">
+  <select class="select" onchange="loadByBreed(this.value)">
      <option>Choose your favorite cat breed</option>
         ${breeds
           .map(function (breed) {
@@ -38,23 +39,54 @@ async function loadByBreed(breedName) {
 function createImage(obj) {
   const { url: image } = obj;
   const info = obj.breeds[0];
-  const { origin, description, name, temperament, life_span } = info;
-
-  console.log(info);
+  const {
+    origin,
+    description,
+    name,
+    temperament,
+    life_span,
+    child_friendly,
+    energy_level,
+  } = info;
 
   document.getElementById("photo").innerHTML = `
   <img src=${image} alt="a lovely kitty">
   `;
   document.getElementById("description").innerHTML = `
-  <h2>I am ${name} Cat</h2>
-  <h3>I come from ${origin}, find out something about me...</h3>
+  <h2>Hello human! I am ${name} Cat</h2>
+  <p>I come from ${origin}, find out something about me...</p>
   <p>${description}</p>
-  <h3>I am ${temperament.toLowerCase()} kitty!</h3>
-  <h3>I can live for ${life_span} years!</h3>
-  
-
-  
+  <p>I am ${temperament.toLowerCase()} kitty!</p>
+  <p>I can live for ${life_span} years!</p>
+  <p>${amIfriendlytoKids(child_friendly)}</p>
+  <p>${amIenergeticKitty(energy_level)}</p>
   `;
+
+  function amIfriendlytoKids(child_friendly) {
+    if (child_friendly === 0)
+      return "Unfortunately, I hate children. Consider this fact!";
+    else if (child_friendly === 1)
+      return "I am not a big fan of kids, but nevermind...";
+    else if (child_friendly === 2) return "I don't mind kids.";
+    else if (child_friendly === 3) return "I get along with kids :)";
+    else if (child_friendly === 4) return "I like kids!";
+    else if (child_friendly === 5) return "I love kids!";
+  }
+
+  function amIenergeticKitty(energy_level) {
+    if (energy_level === 0)
+      return "I am extremely lazy cat! You won't play with me all day! Maybe from time to time...";
+    else if (energy_level === 1)
+      return "I don't like playing but I can fool around occasionally..";
+    else if (energy_level === 2)
+      return "In general, I like running and I may break a vase or two quite often.";
+    else if (energy_level === 3)
+      return "I am quite energetic kitty. You should often play with me! ";
+    else if (energy_level === 4)
+      return "I am energizer! You have to keep an eye on me. Otherwise, I'll destroy your house human!";
+    else if (energy_level === 5)
+      return "You cannnot control me! I swear you'll freak out with me! I am extremely energetic kitty! ";
+  }
 }
 
 start();
