@@ -1,4 +1,4 @@
-## Catify App! [This is my logo!](./logo.png)
+## Catify App!
 
 **[Catify](https://catify-api.netlify.app/)** is a cat-lover app, which is based on a public API titled "The cat api", which allows a user to select a particular cat breed.
 
