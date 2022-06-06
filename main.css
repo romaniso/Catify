@@ -160,9 +160,8 @@ option {
   }
 
   .logo {
-    max-height: 50px;
+    max-height: 40px;
   }
-
   .photo {
     max-width: 350px;
   }
@@ -172,3 +171,9 @@ option {
     padding: 0.5rem 1rem;
   }
 }
+
+@media only screen and (max-width: 425px) {
+  .header {
+    flex-direction: column;
+  }
+} 

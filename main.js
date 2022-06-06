@@ -18,7 +18,7 @@ async function start() {
 function createBreedList(breeds) {
   document.getElementById("breed").innerHTML = `
   <select class="select" onchange="loadByBreed(this.value)">
-     <option>Choose your favorite cat breed</option>
+     <option>Choose your favorite cat</option>
         ${breeds
           .map(function (breed) {
             return `<option>${breed.name}</option>`;
